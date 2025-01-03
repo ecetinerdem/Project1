@@ -8,6 +8,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,6 +19,11 @@ import java.util.List;
 @AllArgsConstructor
 public class VegetableController {
     private final VegetableService vegetableService;
+
+    @Autowired
+    public VegetableController(VegetableService vegetableService) {
+        this.vegetableService = vegetableService;
+    }
 
     @GetMapping
     public List<VegetableResponse> findAll() {
