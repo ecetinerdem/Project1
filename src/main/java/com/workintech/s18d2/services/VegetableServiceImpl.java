@@ -37,8 +37,7 @@ public class VegetableServiceImpl implements VegetableService{
 
     @Override
     public Vegetable findById(Long id) {
-        vegetableRepository.findById(id).orElseThrow(() -> new PlantException("Plant with given id, does not exist " + id, HttpStatus.NOT_FOUND));
-        return null;
+        return vegetableRepository.findById(id).orElseThrow(() -> new PlantException("Plant with given id, does not exist " + id, HttpStatus.NOT_FOUND));
     }
 
     @Override
