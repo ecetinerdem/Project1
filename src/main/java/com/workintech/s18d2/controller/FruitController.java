@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/vegetable")
+@RequestMapping("/fruit")
 @AllArgsConstructor
 public class FruitController {
     private final FruitService fruitService;
