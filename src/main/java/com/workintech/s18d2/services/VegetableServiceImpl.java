@@ -43,16 +43,19 @@ public class VegetableServiceImpl implements VegetableService{
 
     @Override
     public Vegetable save(Vegetable vegetable) {
-        return null;
+        return vegetableRepository.save(vegetable);
     }
 
     @Override
     public Vegetable update(Long id, Vegetable vegetable) {
-        return null;
+        vegetableRepository.findById(id).orElseThrow(() -> new PlantException("Plant with given id, does not exist " + id, HttpStatus.NOT_FOUND));
+        return vegetableRepository.save(vegetable);
     }
 
     @Override
     public Vegetable delete(Long id) {
-        return null;
+        Vegetable foundVegetable = vegetableRepository.findById(id).orElseThrow(() -> new PlantException("Plant with given id, does not exist " + id, HttpStatus.NOT_FOUND));
+        vegetableRepository.delete(foundVegetable);
+        return foundVegetable;
     }
 }
